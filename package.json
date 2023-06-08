@@ -1,0 +1,27 @@
+{
+  "name": "html-table-parser-node",
+  "version": "1.0.1",
+  "description": "Parse multi-level HTML tables (with support for colspan and rowspan)",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vastblast/html-table-parser-node.git"
+  },
+  "keywords": [
+    "html",
+    "table",
+    "parser",
+    "parse",
+    "node",
+    "nodejs"
+  ],
+  "author": "VastBlast",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vastblast/html-table-parser-node/issues"
+  },
+  "homepage": "https://github.com/vastblast/html-table-parser-node#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
