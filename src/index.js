@@ -20,7 +20,7 @@ class HtmlTableParser {
             remove_double_whitespaces = true,
             replace_whitespaces_keys = true
         } = opts;
-        
+
         this.opts = {
             trim_keys,
             lowercase_keys,
@@ -35,7 +35,10 @@ class HtmlTableParser {
     _getHeaders(table) {
         const $ = this.$;
         const headers = [];
-        for (const tr of $(table).find('thead').find('tr')) {
+        const $table = $(table);
+        let headerRows = $table.find('thead').find('tr');
+        if (!headerRows.length) headerRows = $table.find('tr').slice(0, 1);
+        for (const tr of headerRows) {
             const ths = [];
             for (const th of $(tr).find('th')) {
                 let name = $(th).text();

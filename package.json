@@ -1,6 +1,6 @@
 {
   "name": "html-table-parser-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Parse multi-level HTML tables (with support for colspan and rowspan)",
   "main": "src/index.js",
   "repository": {
