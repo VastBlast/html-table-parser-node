@@ -94,7 +94,7 @@ class HtmlTableParser {
         const rows = [];
         for (const tr of $(table).find('tbody').find('tr')) {
             const tds = [];
-            for (const td of $(tr).find('td')) {
+            for (const td of $(tr).find('td, th')) {
                 tds.push($(td).text().trim())
             }
 
