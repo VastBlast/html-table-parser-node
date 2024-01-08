@@ -18,14 +18,16 @@ class HtmlTableParser {
             trim_keys = true,
             lowercase_keys = true,
             remove_double_whitespaces = true,
-            replace_whitespaces_keys = true
+            replace_whitespaces_keys = true,
+            include_html = false
         } = opts;
 
         this.opts = {
             trim_keys,
             lowercase_keys,
             remove_double_whitespaces,
-            replace_whitespaces_keys
+            replace_whitespaces_keys,
+            include_html
         }
 
         this.$ = cheerio.load(html);
@@ -95,7 +97,16 @@ class HtmlTableParser {
         for (const tr of $(table).find('tbody').find('tr')) {
             const tds = [];
             for (const td of $(tr).find('td, th')) {
-                tds.push($(td).text().trim())
+                const $td = $(td);
+                const text = $td.text().trim();
+                if (this.opts.include_html) {
+                    tds.push({
+                        text,
+                        html: $td.html()
+                    });
+                } else {
+                    tds.push(text);
+                }
             }
 
             rows.push(tds);
